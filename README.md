@@ -38,3 +38,7 @@ Planned File Structure
 
 # create the app
 npm create vite@latest . --template react
+npm install
+npm run dev
+
+# to create components
