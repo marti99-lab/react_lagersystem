@@ -1,155 +1,154 @@
 {
-    "inventory": [
-      {
-        "id": 1,
-        "orderNumber": "ORD-1001",
-        "name": "Paracetamol",
-        "stock": 48,
-        "sold": 20,
-        "weight": "500 mg",
-        "price": 16.34,
-        "discount": 5
-      },
-      {
-        "id": 2,
-        "orderNumber": "ORD-1002",
-        "name": "Ibuprofen",
-        "stock": 65,
-        "sold": 12,
-        "weight": "400 mg",
-        "price": 22.75,
-        "discount": 10
-      },
-      {
-        "id": 3,
-        "orderNumber": "ORD-1003",
-        "name": "Aspirin",
-        "stock": 79,
-        "sold": 30,
-        "weight": "500 mg",
-        "price": 12.99,
-        "discount": 0
-      },
-      {
-        "id": 4,
-        "orderNumber": "ORD-1004",
-        "name": "Omeprazol",
-        "stock": 90,
-        "sold": 25,
-        "weight": "20 mg",
-        "price": 18.45,
-        "discount": 15
-      },
-      {
-        "id": 5,
-        "orderNumber": "ORD-1005",
-        "name": "Amoxicillin",
-        "stock": 34,
-        "sold": 15,
-        "weight": "1000 mg",
-        "price": 28.59,
-        "discount": 10
-      },
-      {
-        "id": 6,
-        "orderNumber": "ORD-1006",
-        "name": "Cetirizin",
-        "stock": 58,
-        "sold": 5,
-        "weight": "10 mg",
-        "price": 9.99,
-        "discount": 5
-      },
-      {
-        "id": 7,
-        "orderNumber": "ORD-1007",
-        "name": "Loratadin",
-        "stock": 72,
-        "sold": 9,
-        "weight": "10 mg",
-        "price": 15.89,
-        "discount": 0
-      },
-      {
-        "id": 8,
-        "orderNumber": "ORD-1008",
-        "name": "Metformin",
-        "stock": 44,
-        "sold": 18,
-        "weight": "850 mg",
-        "price": 32.99,
-        "discount": 20
-      },
-      {
-        "id": 9,
-        "orderNumber": "ORD-1009",
-        "name": "Insulin",
-        "stock": 20,
-        "sold": 10,
-        "weight": "10 ml",
-        "price": 45.50,
-        "discount": 15
-      },
-      {
-        "id": 10,
-        "orderNumber": "ORD-1010",
-        "name": "Ciprofloxacin",
-        "stock": 88,
-        "sold": 22,
-        "weight": "500 mg",
-        "price": 24.75,
-        "discount": 5
-      },
-      {
-        "id": 11,
-        "orderNumber": "ORD-1011",
-        "name": "Salbutamol",
-        "stock": 30,
-        "sold": 8,
-        "weight": "100 mcg/dosis",
-        "price": 19.99,
-        "discount": 10
-      },
-      {
-        "id": 12,
-        "orderNumber": "ORD-1012",
-        "name": "L-Thyroxin",
-        "stock": 60,
-        "sold": 11,
-        "weight": "50 mcg",
-        "price": 21.49,
-        "discount": 5
-      },
-      {
-        "id": 13,
-        "orderNumber": "ORD-1013",
-        "name": "Prednisolon",
-        "stock": 40,
-        "sold": 13,
-        "weight": "5 mg",
-        "price": 37.99,
-        "discount": 10
-      },
-      {
-        "id": 14,
-        "orderNumber": "ORD-1014",
-        "name": "Metoprolol",
-        "stock": 55,
-        "sold": 17,
-        "weight": "50 mg",
-        "price": 29.95,
-        "discount": 15
-      },
-      {
-        "id": 15,
-        "orderNumber": "ORD-1015",
-        "name": "Furosemid",
-        "stock": 47,
-        "sold": 6,
-        "weight": "40 mg",
-        "price": 14.49,
-        "discount": 0
-      }
-    ]
-  }
-  
+  "inventory": [
+    {
+      "id": 1,
+      "orderNumber": "ORD-1001",
+      "name": "Paracetamol",
+      "stock": 48,
+      "sold": 20,
+      "weight": "500 mg",
+      "price": 16.34,
+      "discount": 5
+    },
+    {
+      "id": 2,
+      "orderNumber": "ORD-1002",
+      "name": "Ibuprofen",
+      "stock": 65,
+      "sold": 12,
+      "weight": "400 mg",
+      "price": 22.75,
+      "discount": 10
+    },
+    {
+      "id": 3,
+      "orderNumber": "ORD-1003",
+      "name": "Aspirin",
+      "stock": 79,
+      "sold": 30,
+      "weight": "500 mg",
+      "price": 12.99,
+      "discount": 0
+    },
+    {
+      "id": 4,
+      "orderNumber": "ORD-1004",
+      "name": "Omeprazol",
+      "stock": 90,
+      "sold": 25,
+      "weight": "20 mg",
+      "price": 18.45,
+      "discount": 15
+    },
+    {
+      "id": 5,
+      "orderNumber": "ORD-1005",
+      "name": "Amoxicillin",
+      "stock": 34,
+      "sold": 15,
+      "weight": "1000 mg",
+      "price": 28.59,
+      "discount": 10
+    },
+    {
+      "id": 6,
+      "orderNumber": "ORD-1006",
+      "name": "Cetirizin",
+      "stock": 58,
+      "sold": 5,
+      "weight": "10 mg",
+      "price": 9.99,
+      "discount": 5
+    },
+    {
+      "id": 7,
+      "orderNumber": "ORD-1007",
+      "name": "Loratadin",
+      "stock": 72,
+      "sold": 9,
+      "weight": "10 mg",
+      "price": 15.89,
+      "discount": 0
+    },
+    {
+      "id": 8,
+      "orderNumber": "ORD-1008",
+      "name": "Metformin",
+      "stock": 44,
+      "sold": 18,
+      "weight": "850 mg",
+      "price": 32.99,
+      "discount": 20
+    },
+    {
+      "id": 9,
+      "orderNumber": "ORD-1009",
+      "name": "Insulin",
+      "stock": 20,
+      "sold": 10,
+      "weight": "10 ml",
+      "price": 45.5,
+      "discount": 15
+    },
+    {
+      "id": 10,
+      "orderNumber": "ORD-1010",
+      "name": "Ciprofloxacin",
+      "stock": 88,
+      "sold": 22,
+      "weight": "500 mg",
+      "price": 24.75,
+      "discount": 5
+    },
+    {
+      "id": 11,
+      "orderNumber": "ORD-1011",
+      "name": "Salbutamol",
+      "stock": 30,
+      "sold": 8,
+      "weight": "100 mcg/dosis",
+      "price": 19.99,
+      "discount": 10
+    },
+    {
+      "id": 12,
+      "orderNumber": "ORD-1012",
+      "name": "L-Thyroxin",
+      "stock": 60,
+      "sold": 11,
+      "weight": "50 mcg",
+      "price": 21.49,
+      "discount": 5
+    },
+    {
+      "id": 13,
+      "orderNumber": "ORD-1013",
+      "name": "Prednisolon",
+      "stock": 40,
+      "sold": 13,
+      "weight": "5 mg",
+      "price": 37.99,
+      "discount": 10
+    },
+    {
+      "id": 14,
+      "orderNumber": "ORD-1014",
+      "name": "Metoprolol",
+      "stock": 55,
+      "sold": 17,
+      "weight": "50 mg",
+      "price": 29.95,
+      "discount": 15
+    },
+    {
+      "id": 15,
+      "orderNumber": "ORD-1015",
+      "name": "Furosemid",
+      "stock": 47,
+      "sold": 6,
+      "weight": "40 mg",
+      "price": 14.49,
+      "discount": 0
+    }
+  ]
+}

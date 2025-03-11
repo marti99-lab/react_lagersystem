@@ -168,7 +168,7 @@ Inventory.css:
 
 ##  **5. API-Anbindung**
 ### **mit json-server simuliert**
-npm install -g json-server
+npm install -g json-server <br>
 Datei db.json erstellt
 
 db.json:
@@ -266,4 +266,29 @@ const Inventory = () => {
 
 export default Inventory;
   ``` 
+  
+## **6. Items hinzufügen & entfernen**  
+### **Neues Medikament hinzufügen**
+- Erstellt eine **Formular-Komponente** `NewMedicineForm.tsx`.
+- Benutzer gibt **Bestellnummer, Name, Lagerbestand, Preis, etc.** ein.
+- Nach dem Absenden wird ein **`POST`-Request** an `json-server` gesendet.
+
+### **Medikament entfernen**
+- Neben jedem Produkt gibt es ein **Löschen-Button (🗑)**
+- Klickt der Nutzer darauf, sendet die App einen **`DELETE`-Request**.
+- Der Zustand wird aktualisiert, sodass das gelöschte Element **sofort aus der UI entfernt** wird.
+
+### **Datenstruktur für neue Einträge**
+Jedes neue Medikament wird in folgendem Format an `db.json` gesendet:
+```json
+{
+  "id": 16,
+  "orderNumber": "ORD-1016",
+  "name": "Diclofenac",
+  "stock": 100,
+  "sold": 0,
+  "weight": "500 mg",
+  "price": 19.99,
+  "discount": 10
+}
 

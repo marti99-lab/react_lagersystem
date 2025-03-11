@@ -7,7 +7,7 @@ File Structure
 │── src/
 │   ├── assets/
 │   ├── components/
-│            └── Header.tsx, Header.css, Footer.tsx, Footer.css,
+│            └── Header.tsx, Header.css, Footer.tsx, Footer.css, NewMedicineForm.tsx
 │   ├── pages/
 │            └── Inventory.tsx, Inventory.css,
 │   ├── hooks/
@@ -41,11 +41,12 @@ File Structure
 
 
 # create the app
-npm create vite@latest . --template react
-npm install
+npm create vite@latest . --template react <br>
+npm install <br>
 npm run dev
 
 # running the app after cloning the git repository
-npm install
-npm install -g json-server
-npm run dev
+npm install <br>
+npm install -g json-server <br>
+npm run dev (First Terminal)<br>
+json-server --watch db.json --port 5000 (Second Terminal)
