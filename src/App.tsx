@@ -1,17 +1,21 @@
-import './App.css'
-import Header from './components/Header'
-import Footer from './components/Footer'
+import './App.css';
+import Header from './components/Header';
+import Footer from './components/Footer';
+import Inventory from './pages/Inventory';
+import { Routes, Route } from 'react-router-dom';
 
 function App() {
   return (
-    <div className="App">
-    <Header/ >
-    <main>
-      <h1>Hauptmenu</h1>
+    <>
+      <Header />
+      <main>
+        <Routes>
+          <Route path="/" element={<Inventory />} />
+        </Routes>
       </main>
-    <Footer/ >
-    </div>
-  )
+      <Footer />
+    </>
+  );
 }
 
-export default App
+export default App;

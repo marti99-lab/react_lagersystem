@@ -9,6 +9,7 @@ File Structure
 │   ├── components/
 │            └── Header.tsx, Header.css, Footer.tsx, Footer.css,
 │   ├── pages/
+│            └── Inventory.tsx, Inventory.css,
 │   ├── hooks/
 │   ├── context/
 │   ├── services/
@@ -22,6 +23,7 @@ File Structure
 │   ├── vite-env.d.ts
 │
 ├── .gitignore
+├── db.json
 ├── DOKUMENTATION.md
 ├── eslint.config.js
 ├── index.html
@@ -41,4 +43,9 @@ File Structure
 # create the app
 npm create vite@latest . --template react
 npm install
+npm run dev
+
+# running the app after cloning the git repository
+npm install
+npm install -g json-server
 npm run dev
