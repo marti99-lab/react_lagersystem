@@ -291,4 +291,8 @@ Jedes neue Medikament wird in folgendem Format an `db.json` gesendet:
   "price": 19.99,
   "discount": 10
 }
-
+```
+##  **Medikamente bearbeiten & Suche**
+Medikamente können nun direkt bearbeitet werden.
+Suchleiste filtert Einträge nach Name oder ID.
+Einheitliche Farbgestaltung mit verbesserten Buttons und Tabellen-Styling.

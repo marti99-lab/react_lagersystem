@@ -1,4 +1,5 @@
 import { useState } from "react";
+import "../pages/Inventory.css";
 
 const NewMedicineForm = ({ onAdd, items }) => {
   const getNextId = () => {

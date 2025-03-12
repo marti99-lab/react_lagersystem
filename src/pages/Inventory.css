@@ -1,15 +1,104 @@
+.inventory {
+  font-family: Arial, sans-serif;
+  width: 100%;
+  max-width: 65rem;
+  margin: 2rem auto;
+  padding: 1rem;
+  background: linear-gradient(135deg, rgba(25, 158, 235, 0.2), rgba(0, 102, 204, 0.2));
+  border-radius: 0.8rem;
+  box-shadow: 0 0.5rem 1.2rem rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+.inventory h2 {
+  text-align: center;
+  color: rgb(25, 158, 235);
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+}
+
 .inventory table {
-    width: 100%;
-    border-collapse: collapse;
-  }
-  
-  .inventory th, .inventory td {
-    border: 1px solid #ddd;
-    padding: 8px;
-    text-align: left;
-  }
-  
-  .inventory th {
-    color: rgb(25, 158, 235);
-  }
-  
+  width: 100%;
+  border-collapse: collapse;
+  border-radius: 0.5rem;
+  overflow: hidden;
+  background: white;
+}
+
+.inventory th, .inventory td {
+  padding: 0.8rem 1rem;
+  text-align: left;
+  font-size: 0.9rem;
+}
+
+.inventory th {
+  background: linear-gradient(135deg, rgb(25, 158, 235), rgb(0, 102, 204));
+  color: white;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.inventory tbody tr:nth-child(even) {
+  background: rgba(25, 158, 235, 0.05);
+}
+
+.inventory tbody tr:hover {
+  background: rgba(25, 158, 235, 0.15);
+}
+
+.inventory td:last-child {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  flex-wrap: nowrap;
+}
+
+.inventory button {
+  padding: 0.4rem 0.6rem;
+  font-size: 0.85rem;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+  border-radius: 0.3rem;
+  transition: all 0.2s ease-in-out;
+  margin: 0 0.2rem;
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  justify-content: center;
+  color: rgb(25, 158, 235);
+  text-shadow: 0px 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.inventory .edit-btn {
+  background: linear-gradient(135deg, #2196F3, #1976D2);
+}
+
+.inventory .delete-btn {
+  background: linear-gradient(135deg, #E53935, #C62828);
+}
+
+.inventory .save-btn {
+  background: linear-gradient(135deg, #4CAF50, #388E3C);
+}
+
+.inventory .cancel-btn {
+  background: linear-gradient(135deg, #757575, #616161);
+}
+
+.inventory .add-btn {
+  background: linear-gradient(135deg, #FFC107, #FF9800);
+  color: black;
+  font-weight: bold;
+}
+
+.inventory button:hover {
+  filter: brightness(1.1);
+}
+
+.inventory button svg {
+  width: 1rem;
+  height: 1rem;
+  fill: white;
+}

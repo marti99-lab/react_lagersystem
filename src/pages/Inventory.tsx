@@ -15,6 +15,9 @@ type InventoryItem = {
 
 const Inventory = () => {
   const [items, setItems] = useState<InventoryItem[]>([]);
+  const [editingId, setEditingId] = useState<string | null>(null);
+  const [editValues, setEditValues] = useState<Partial<InventoryItem>>({});
+  const [searchTerm, setSearchTerm] = useState("");
 
   useEffect(() => {
     fetch("http://localhost:5000/inventory")
@@ -25,7 +28,7 @@ const Inventory = () => {
       })
       .catch((error) => console.error("Fehler beim Abruf:", error));
   }, []);
- 
+
   const getNextId = () => {
     if (items.length === 0) return "1";
     const maxId = Math.max(...items.map((item) => parseInt(item.id, 10)).filter(Number.isFinite), 0);
@@ -49,12 +52,52 @@ const Inventory = () => {
     fetch(`http://localhost:5000/inventory/${id}`, { method: "DELETE" })
       .then(() => setItems(items.filter((item) => item.id !== id)));
   };
-  
+
+  const startEdit = (item: InventoryItem) => {
+    setEditingId(item.id);
+    setEditValues(item);
+  };
+
+  const handleEditChange = (e) => {
+    setEditValues({ ...editValues, [e.target.name]: e.target.value });
+  };
+
+  const saveEdit = (id: string) => {
+    fetch(`http://localhost:5000/inventory/${id}`, {
+      method: "PATCH",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(editValues),
+    })
+      .then((response) => response.json())
+      .then((updatedItem) => {
+        setItems(items.map((item) => (item.id === id ? updatedItem : item)));
+        setEditingId(null);
+      });
+  };
+
+  // 🔍 **Filtering logic (Search Function)**
+  const filteredItems = items.filter(
+    (item) =>
+      item.name.toLowerCase().includes(searchTerm.toLowerCase()) || item.id.includes(searchTerm)
+  );
 
   return (
     <div className="inventory">
       <h2>Inventarliste</h2>
+
+      {/* Medicine Form */}
       <NewMedicineForm onAdd={addItem} items={items} /> 
+
+      {/* 🔍 Search Bar */}
+      <input
+        type="text"
+        placeholder="🔍 Suche nach ID oder Name..."
+        value={searchTerm}
+        onChange={(e) => setSearchTerm(e.target.value)}
+        style={{ marginBottom: "10px", padding: "5px", width: "100%" }}
+      />
+
+      {/* Inventory Table */}
       <table>
         <thead>
           <tr>
@@ -70,19 +113,63 @@ const Inventory = () => {
           </tr>
         </thead>
         <tbody>
-          {items.length > 0 ? (
-            items.map((item) => (
+          {filteredItems.length > 0 ? (
+            filteredItems.map((item) => (
               <tr key={item.id}>
                 <td>{item.id}</td>
                 <td>{item.orderNumber}</td>
                 <td>{item.name}</td>
-                <td>{item.stock}</td>
+                <td>
+                  {editingId === item.id ? (
+                    <input
+                      type="number"
+                      name="stock"
+                      value={editValues.stock || ""}
+                      onChange={handleEditChange}
+                    />
+                  ) : (
+                    item.stock
+                  )}
+                </td>
                 <td>{item.sold}</td>
                 <td>{item.weight}</td>
-                <td>{Number(item.price).toFixed(2)} €</td>
-                <td>{item.discount}%</td>
                 <td>
-                  <button onClick={() => deleteItem(item.id)}>🗑</button>
+                  {editingId === item.id ? (
+                    <input
+                      type="number"
+                      name="price"
+                      step="0.01"
+                      value={editValues.price || ""}
+                      onChange={handleEditChange}
+                    />
+                  ) : (
+                    `${Number(item.price).toFixed(2)} €`
+                  )}
+                </td>
+                <td>
+                  {editingId === item.id ? (
+                    <input
+                      type="number"
+                      name="discount"
+                      value={editValues.discount || ""}
+                      onChange={handleEditChange}
+                    />
+                  ) : (
+                    `${item.discount}%`
+                  )}
+                </td>
+                <td>
+                  {editingId === item.id ? (
+                    <>
+                      <button onClick={() => saveEdit(item.id)}>💾 Save</button>
+                      <button onClick={() => setEditingId(null)}>❌ Cancel</button>
+                    </>
+                  ) : (
+                    <>
+                      <button onClick={() => startEdit(item)}>✏️ Edit</button>
+                      <button onClick={() => deleteItem(item.id)}>🗑 Delete</button>
+                    </>
+                  )}
                 </td>
               </tr>
             ))
@@ -95,7 +182,6 @@ const Inventory = () => {
       </table>
     </div>
   );
-  
 };
 
 export default Inventory;

@@ -1,17 +1,17 @@
 {
   "inventory": [
     {
-      "id": 1,
+      "id": "1",
       "orderNumber": "ORD-1001",
       "name": "Paracetamol",
-      "stock": 48,
+      "stock": "75",
       "sold": 20,
       "weight": "500 mg",
       "price": 16.34,
       "discount": 5
     },
     {
-      "id": 2,
+      "id": "2",
       "orderNumber": "ORD-1002",
       "name": "Ibuprofen",
       "stock": 65,
@@ -21,7 +21,7 @@
       "discount": 10
     },
     {
-      "id": 3,
+      "id": "3",
       "orderNumber": "ORD-1003",
       "name": "Aspirin",
       "stock": 79,
@@ -31,7 +31,7 @@
       "discount": 0
     },
     {
-      "id": 4,
+      "id": "4",
       "orderNumber": "ORD-1004",
       "name": "Omeprazol",
       "stock": 90,
@@ -41,7 +41,7 @@
       "discount": 15
     },
     {
-      "id": 5,
+      "id": "5",
       "orderNumber": "ORD-1005",
       "name": "Amoxicillin",
       "stock": 34,
@@ -51,7 +51,7 @@
       "discount": 10
     },
     {
-      "id": 6,
+      "id": "6",
       "orderNumber": "ORD-1006",
       "name": "Cetirizin",
       "stock": 58,
@@ -61,7 +61,7 @@
       "discount": 5
     },
     {
-      "id": 7,
+      "id": "7",
       "orderNumber": "ORD-1007",
       "name": "Loratadin",
       "stock": 72,
@@ -71,7 +71,7 @@
       "discount": 0
     },
     {
-      "id": 8,
+      "id": "8",
       "orderNumber": "ORD-1008",
       "name": "Metformin",
       "stock": 44,
@@ -81,7 +81,7 @@
       "discount": 20
     },
     {
-      "id": 9,
+      "id": "9",
       "orderNumber": "ORD-1009",
       "name": "Insulin",
       "stock": 20,
@@ -91,7 +91,7 @@
       "discount": 15
     },
     {
-      "id": 10,
+      "id": "10",
       "orderNumber": "ORD-1010",
       "name": "Ciprofloxacin",
       "stock": 88,
@@ -101,7 +101,7 @@
       "discount": 5
     },
     {
-      "id": 11,
+      "id": "11",
       "orderNumber": "ORD-1011",
       "name": "Salbutamol",
       "stock": 30,
@@ -111,7 +111,7 @@
       "discount": 10
     },
     {
-      "id": 12,
+      "id": "12",
       "orderNumber": "ORD-1012",
       "name": "L-Thyroxin",
       "stock": 60,
@@ -121,7 +121,7 @@
       "discount": 5
     },
     {
-      "id": 13,
+      "id": "13",
       "orderNumber": "ORD-1013",
       "name": "Prednisolon",
       "stock": 40,
@@ -131,7 +131,7 @@
       "discount": 10
     },
     {
-      "id": 14,
+      "id": "14",
       "orderNumber": "ORD-1014",
       "name": "Metoprolol",
       "stock": 55,
@@ -141,7 +141,7 @@
       "discount": 15
     },
     {
-      "id": 15,
+      "id": "15",
       "orderNumber": "ORD-1015",
       "name": "Furosemid",
       "stock": 47,
