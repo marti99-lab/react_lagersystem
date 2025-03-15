@@ -18,6 +18,8 @@ const Inventory = () => {
   const [editingId, setEditingId] = useState<string | null>(null);
   const [editValues, setEditValues] = useState<Partial<InventoryItem>>({});
   const [searchTerm, setSearchTerm] = useState("");
+  const [sortConfig, setSortConfig] = useState<{ key: keyof InventoryItem; direction: "asc" | "desc" } | null>(null);
+  const [originalItems, setOriginalItems] = useState<InventoryItem[]>([]);
 
   useEffect(() => {
     fetch("http://localhost:5000/inventory")
@@ -25,9 +27,11 @@ const Inventory = () => {
       .then((data: InventoryItem[]) => {
         console.log("Daten von API:", data);
         setItems(data);
+        setOriginalItems(data);
       })
       .catch((error) => console.error("Fehler beim Abruf:", error));
   }, []);
+
 
   const getNextId = () => {
     if (items.length === 0) return "1";
@@ -75,41 +79,68 @@ const Inventory = () => {
       });
   };
 
-  // 🔍 **Filtering logic (Search Function)**
   const filteredItems = items.filter(
     (item) =>
       item.name.toLowerCase().includes(searchTerm.toLowerCase()) || item.id.includes(searchTerm)
   );
 
+  const sortItems = (key: keyof InventoryItem) => {
+    let direction: "asc" | "desc" = "asc";
+    if (sortConfig && sortConfig.key === key && sortConfig.direction === "asc") {
+      direction = "desc";
+    }
+    setSortConfig({ key, direction });
+
+    const sorted = [...filteredItems].sort((a, b) => {
+      const aValue = typeof a[key] === "string" ? a[key].toString().toLowerCase() : a[key];
+      const bValue = typeof b[key] === "string" ? b[key].toString().toLowerCase() : b[key];
+
+      if (aValue < bValue) return direction === "asc" ? -1 : 1;
+      if (aValue > bValue) return direction === "asc" ? 1 : -1;
+      return 0;
+    });
+
+    setItems(sorted);
+  };
+
   return (
     <div className="inventory">
-      <h2>Inventarliste</h2>
-
-      {/* Medicine Form */}
-      <NewMedicineForm onAdd={addItem} items={items} /> 
-
-      {/* 🔍 Search Bar */}
-      <input
-        type="text"
-        placeholder="🔍 Suche nach ID oder Name..."
-        value={searchTerm}
-        onChange={(e) => setSearchTerm(e.target.value)}
-        style={{ marginBottom: "10px", padding: "5px", width: "100%" }}
-      />
-
-      {/* Inventory Table */}
+            <h2>Inventarliste</h2>
+            <div className="inventory-controls">
+  <button onClick={() => setItems(originalItems)}>🔄 Sortierung zurücksetzen</button>
+  <input
+    type="text"
+    placeholder="🔍 Suche nach ID oder Name..."
+    value={searchTerm}
+    onChange={(e) => setSearchTerm(e.target.value)}
+    className="inventory-search"
+  />
+</div>
+      <NewMedicineForm onAdd={addItem} items={items} />
       <table>
         <thead>
           <tr>
             <th>ID</th>
             <th>Bestellnummer</th>
-            <th>Produkt</th>
-            <th>Anzahl im Lager</th>
+            <th onClick={() => sortItems("name")} style={{ cursor: "pointer", textAlign: "center" }}>
+              <span>🔼</span>
+              <span>Produkt</span>
+              <span>🔽</span>
+            </th>
+            <th onClick={() => sortItems("stock")} style={{ cursor: "pointer", textAlign: "center" }}>
+              <span>🔼</span>
+              <span>Anzahl im Lager</span>
+              <span>🔽</span>
+            </th>
             <th>Anzahl verkauft</th>
             <th>Gewicht</th>
-            <th>Preis (€)</th>
+            <th onClick={() => sortItems("price")} style={{ cursor: "pointer", textAlign: "center" }}>
+              <span>🔼</span>
+              <span>Preis (€)</span>
+              <span>🔽</span>
+            </th>
             <th>Rabatt (%)</th>
-            <th>Aktion</th>             
+            <th>Aktion</th>
           </tr>
         </thead>
         <tbody>
@@ -161,13 +192,13 @@ const Inventory = () => {
                 <td>
                   {editingId === item.id ? (
                     <>
-                      <button onClick={() => saveEdit(item.id)}>💾 Save</button>
-                      <button onClick={() => setEditingId(null)}>❌ Cancel</button>
+                      <button className="save-btn" onClick={() => saveEdit(item.id)}>💾 Save</button>
+                      <button className="cancel-btn" onClick={() => setEditingId(null)}>❌ Cancel</button>
                     </>
                   ) : (
                     <>
-                      <button onClick={() => startEdit(item)}>✏️ Edit</button>
-                      <button onClick={() => deleteItem(item.id)}>🗑 Delete</button>
+                      <button className="edit-btn" onClick={() => startEdit(item)}>✏️ Edit</button>
+                      <button className="delete-btn" onClick={() => deleteItem(item.id)}>🗑 Delete</button>
                     </>
                   )}
                 </td>

@@ -54,6 +54,26 @@
   flex-wrap: nowrap;
 }
 
+.inventory-controls {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.inventory-controls button {
+  padding: 0.4rem 0.8rem;
+}
+
+.inventory-search {
+  padding: 0.5rem;
+  width: 75%;
+  max-width: 48rem; 
+  border: 1px solid #ccc;
+  border-radius: 0.3rem;
+}
+
 .inventory button {
   padding: 0.4rem 0.6rem;
   font-size: 0.85rem;
