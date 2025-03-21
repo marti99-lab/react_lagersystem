@@ -42,6 +42,20 @@ const NewMedicineForm = ({ onAdd, items }) => {
     const newId = getNextId();
     const newOrderNumber = getNextOrderNumber();
 
+    const stock = Number(newItem.stock);
+    const price = Number(newItem.price);
+    const discount = Number(newItem.discount);
+
+    if (
+      !newItem.name.trim() ||
+      isNaN(stock) || stock < 0 ||
+      isNaN(price) || price <= 0 ||
+      isNaN(discount) || discount < 0 || discount > 100
+    ) {
+      alert("❌ Bitte gültige Werte eingeben:\n- Name darf nicht leer sein\n- Preis > 0\n- Rabatt 0–100%");
+      return;
+    }
+
     onAdd({
       id: newId,
       orderNumber: newOrderNumber,

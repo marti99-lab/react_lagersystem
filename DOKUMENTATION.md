@@ -305,3 +305,7 @@ Er kann die Sortierung auch zurücksetzten.
 ## **9. Visuelles Feedback beim Speichern & Löschen**
 Nach erfolgreichem Speichern oder Löschen wird nun eine kurze Statusmeldung angezeigt.
 Die Meldung verschwindet automatisch nach wenigen Sekunden und verbessert die Nutzerführung ohne externe Bibliotheken.
+
+## **10. Prüfung der Formulareingaben**
+Beim Hinzufügen neuer Medikamente wird geprüft, ob Name, Preis und Rabatt gültig sind.  
+Ungültige Eingaben werden mit einer Hinweismeldung abgefangen.
