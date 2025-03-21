@@ -20,6 +20,7 @@ const Inventory = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [sortConfig, setSortConfig] = useState<{ key: keyof InventoryItem; direction: "asc" | "desc" } | null>(null);
   const [originalItems, setOriginalItems] = useState<InventoryItem[]>([]);
+  const [statusMessage, setStatusMessage] = useState("");
 
   useEffect(() => {
     fetch("http://localhost:5000/inventory")
@@ -54,8 +55,12 @@ const Inventory = () => {
 
   const deleteItem = (id) => {
     fetch(`http://localhost:5000/inventory/${id}`, { method: "DELETE" })
-      .then(() => setItems(items.filter((item) => item.id !== id)));
-  };
+      .then(() => {
+        setItems(items.filter((item) => item.id !== id));
+        setStatusMessage("🗑️ Medikament erfolgreich gelöscht");
+        setTimeout(() => setStatusMessage(""), 3000);
+      });
+  };  
 
   const startEdit = (item: InventoryItem) => {
     setEditingId(item.id);
@@ -76,6 +81,8 @@ const Inventory = () => {
       .then((updatedItem) => {
         setItems(items.map((item) => (item.id === id ? updatedItem : item)));
         setEditingId(null);
+        setStatusMessage("💾 Änderungen gespeichert");
+        setTimeout(() => setStatusMessage(""), 3000);
       });
   };
 
@@ -105,17 +112,22 @@ const Inventory = () => {
 
   return (
     <div className="inventory">
-            <h2>Inventarliste</h2>
-            <div className="inventory-controls">
-  <button onClick={() => setItems(originalItems)}>🔄 Sortierung zurücksetzen</button>
-  <input
-    type="text"
-    placeholder="🔍 Suche nach ID oder Name..."
-    value={searchTerm}
-    onChange={(e) => setSearchTerm(e.target.value)}
-    className="inventory-search"
-  />
-</div>
+      <h2>Inventarliste</h2>
+      {statusMessage && (
+        <p style={{ color: "green", marginBottom: "1rem", fontWeight: "bold" }}>
+          {statusMessage}
+        </p>
+      )}
+      <div className="inventory-controls">
+        <button onClick={() => setItems(originalItems)}>🔄 Sortierung zurücksetzen</button>
+        <input
+          type="text"
+          placeholder="🔍 Suche nach ID oder Name..."
+          value={searchTerm}
+          onChange={(e) => setSearchTerm(e.target.value)}
+          className="inventory-search"
+        />
+      </div>
       <NewMedicineForm onAdd={addItem} items={items} />
       <table>
         <thead>

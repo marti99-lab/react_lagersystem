@@ -301,3 +301,7 @@ Einheitliche Farbgestaltung mit verbesserten Buttons und Tabellen-Styling.
 Nutzer kann die Tabelle durch Klick auf die Spaltenüberschriften sortieren.
 Sortierung nach Name, Lagerbestand, Preis oder Rabatt.
 Er kann die Sortierung auch zurücksetzten.
+
+## **9. Visuelles Feedback beim Speichern & Löschen**
+Nach erfolgreichem Speichern oder Löschen wird nun eine kurze Statusmeldung angezeigt.
+Die Meldung verschwindet automatisch nach wenigen Sekunden und verbessert die Nutzerführung ohne externe Bibliotheken.
