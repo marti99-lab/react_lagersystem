@@ -110,6 +110,26 @@ const Inventory = () => {
     setItems(sorted);
   };
 
+  const handleExportCSV = () => {
+    if (items.length === 0) return;
+  
+    const headers = Object.keys(items[0]).join(",") + "\n";
+    const rows = items.map(item =>
+      Object.values(item).join(",")
+    ).join("\n");
+  
+    const csvContent = headers + rows;
+    const blob = new Blob([csvContent], { type: "text/csv;charset=utf-8;" });
+    const url = URL.createObjectURL(blob);
+  
+    const link = document.createElement("a");
+    link.href = url;
+    link.setAttribute("download", "inventar.csv");
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };  
+
   return (
     <div className="inventory">
       <h2>Inventarliste</h2>
@@ -223,6 +243,7 @@ const Inventory = () => {
           )}
         </tbody>
       </table>
+      <button className="export-btn" onClick={handleExportCSV}>📁 Export als CSV</button>
     </div>
   );
 };

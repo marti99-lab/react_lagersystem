@@ -79,7 +79,7 @@ const NewMedicineForm = ({ onAdd, items }) => {
       <input name="weight" placeholder="Weight (mg/ml)" value={newItem.weight} onChange={handleChange} />
       <input name="price" placeholder="Price (€)" type="number" step="0.01" value={newItem.price} onChange={handleChange} required />
       <input name="discount" placeholder="Discount (%)" type="number" value={newItem.discount} onChange={handleChange} />
-      <button type="submit">➕ Add Medicine</button>
+      <button type="submit" className="add-btn">➕ Add Medicine</button>
     </form>
   );
 };

@@ -309,3 +309,6 @@ Die Meldung verschwindet automatisch nach wenigen Sekunden und verbessert die Nu
 ## **10. Prüfung der Formulareingaben**
 Beim Hinzufügen neuer Medikamente wird geprüft, ob Name, Preis und Rabatt gültig sind.  
 Ungültige Eingaben werden mit einer Hinweismeldung abgefangen.
+
+## **CSV-Export**
+Ein Button, mit dem der Benutzer die aktuelle Tabelle als CSV-Datei exportieren kann.
